@@ -42,23 +42,23 @@ class VttpWorkflowApplicationTests {
         assertTrue(images.size() == 10);
     }
 
-    // @Test
-    // void postQueryGiphy() throws Exception {
-    //     RequestBuilder req = MockMvcRequestBuilders.post("/postGif")
-    //                                                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-    //                                                 .content(buildUrlEncodedFormEntity("phrase", "pokemon",
-    //                                                 "limit", "10",
-    //                                                 "rating", "PG_13"));
+    @Test
+    void postQueryGiphy() throws Exception {
+        RequestBuilder req = MockMvcRequestBuilders.post("/postGif")
+                                                    .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                                                    .content(buildUrlEncodedFormEntity("phrase", "pokemon",
+                                                    "limit", "10",
+                                                    "rating", "PG_13"));
 
-    //     MvcResult result = mockMvc.perform(req).andReturn();
-    //     int status = result.getResponse().getStatus();
+        MvcResult result = mockMvc.perform(req).andReturn();
+        int status = result.getResponse().getStatus();
 
-    //     String payload = result.getResponse().getContentAsString();
+        String payload = result.getResponse().getContentAsString();
 
-    //     assertEquals(200, status);
-    //     assertTrue(payload.indexOf("Results") > 0);
-    //     assertTrue(!payload.isEmpty());
-    // }
+        assertEquals(200, status);
+        assertTrue(payload.indexOf("Results") > 0);
+        assertTrue(!payload.isEmpty());
+    }
 
     private String buildUrlEncodedFormEntity(String... params) {
         if( (params.length % 2) > 0 ) {
